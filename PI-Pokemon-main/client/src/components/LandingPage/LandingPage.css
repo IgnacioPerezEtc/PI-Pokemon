@@ -1,0 +1,25 @@
+
+.tituloLandingPage{
+    padding-top:70px ;
+    color: #fff;
+    align-items: center;
+    margin-bottom: 4.8em;
+}
+.bodyLandingPage{
+    background-image: url("https://wallpaperaccess.com/full/20998.jpg");
+    background-size:cover ;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     width: 100%;
+     height:100%;
+     position: absolute;
+}
+.btnLandingPage{
+    text-decoration: none;
+    color: #fff;
+    padding: 1.5em 1.5em;
+    background-color: #9b0000;;
+}
+.btnLandingPage:hover{
+    background-color: #d50000;
+}
