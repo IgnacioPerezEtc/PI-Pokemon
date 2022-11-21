@@ -36,19 +36,23 @@ const rootReducer = (state = initialState, action) => {
           error: true,
         };
       }
-      case ERROR:
-        return {
-          ...state,
-          error: action.payload,
-        };
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
     case GET_POKEMON_BY_ID:
       return { ...state, pokemonDetail: action.payload };
 
     case GET_POKEMON_BY_NAME:
-      return {
-        ...state,
-        pokemons: action.payload,
-      };
+      if (!action.payload.includes(null)) {
+        return {
+          ...state,
+          pokemons: action.payload,
+        };
+      } else {
+        return { ...state, error: true };
+      }
 
     case FILTER_CREATED:
       const array = state.allPokemons;

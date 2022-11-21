@@ -6,7 +6,7 @@
     margin-bottom: 4.8em;
 }
 .bodyLandingPage{
-    background-image: url("https://wallpaperaccess.com/full/20998.jpg");
+    background-image: url("https://wallpapercave.com/wp/wp10948256.jpg");
     background-size:cover ;
      background-repeat: no-repeat;
      background-attachment: fixed;
@@ -17,9 +17,9 @@
 .btnLandingPage{
     text-decoration: none;
     color: #fff;
-    padding: 1.5em 1.5em;
-    background-color: #9b0000;;
+    padding: 1.2em 1.5em;
+    background-color: #1c3651;;
 }
 .btnLandingPage:hover{
-    background-color: #d50000;
+    background-color: #001028;
 }

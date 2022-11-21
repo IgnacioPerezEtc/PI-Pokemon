@@ -83,3 +83,17 @@ padding:10px ;
 .NavLinkToLanding:hover{
 background-color: #001028;
 }
+.Refresh {
+  background: #1c3651;
+    color: #fff;
+    display: inline-block;
+    padding: 11px 15px;
+    text-decoration: none;
+    align-items: right;
+    margin: 10px;
+    border-radius: 20px;
+    border: none;
+}
+.Refresh:hover{
+  background-color: #001028;
+}

@@ -11,6 +11,7 @@ import {
   orderAlphabetically,
   orderByAttack,
 } from "../../redux/actions";
+import Error from "../Error/Error.jsx";
 export const SearchBar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,6 +22,7 @@ export const SearchBar = () => {
   const handleChange = (event) => {
     setInput(event.target.value);
   };
+  const error = useSelector((state) => state.error);
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(getPokemonByName(input));
@@ -50,7 +52,9 @@ export const SearchBar = () => {
     }
     dispatch(orderByAttack(value));
   };
-
+  const reload=()=>{
+    window.location.reload()
+}
   const handleChangeByType = (event) => {
     event.preventDefault();
     let value = event.target.value;
@@ -59,6 +63,14 @@ export const SearchBar = () => {
     }
     dispatch(filterByType(value));
   };
+  if (error) {
+    return (
+      <div>
+        <p>Estoy entrando aca</p>
+        <Error />
+      </div>
+    );
+  }
   return (
     <>
       <div className="nav-container">
@@ -81,7 +93,7 @@ export const SearchBar = () => {
         <div className="NavLinkContainer"></div>
       </div>
       <div className="flex-container">
-        <div>
+        <div> <button onClick={reload} className="Refresh">Refresh</button>
           <select
             onChange={(event) => handleChangeAlphabetically(event)}
             defaultValue="title"
@@ -135,9 +147,11 @@ export const SearchBar = () => {
             <option value="Existente">Existente</option>
             <option value="Creado">Creado</option>
           </select>
+          
           <NavLink className={"btnHome"} to="/form">
             Crea tu propio pokemon
           </NavLink>
+         
         </div>
       </div>
     </>

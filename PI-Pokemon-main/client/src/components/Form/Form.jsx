@@ -25,15 +25,15 @@ const Form = () => {
     if (!input.speed || input.speed < 0 || input.speed > 150) {
       errors.speed = "Debe tener velocidad entre 1 - 150";
     }
-    if (!input.weight) {
-      errors.weight = "Debe tener peso";
+    if (!input.weight || input.speed < 0 || input.speed > 1000) {
+      errors.weight = "Debe tener peso entre 1-500";
     }
-    if (!input.height) {
-      errors.height = "Debe tener altura";
+    if (!input.height || input.speed < 0 || input.speed > 1000) {
+      errors.height = "Debe tener altura entre 1-500";
     }
 
     //if (input.types.length === 0) {
-      //errors.types = "Debe tener por lo menos un tipo";
+    //errors.types = "Debe tener por lo menos un tipo";
     //}
     return errors;
   }
@@ -73,6 +73,7 @@ const Form = () => {
     });
     history.push("/home");
     dispatch(getAllPokemons());
+    window.location.reload();
   };
   const handleSelect = (event) => {
     if (!input.types.includes(event.target.value)) {
@@ -110,21 +111,26 @@ const Form = () => {
       input.attack.length &&
       input.defense.length &&
       input.speed.length &&
-      input.types.length
+      input.types.length &&
+      input.height.length &&
+      input.weight.length
     ) ||
     input.hp > 150 ||
     input.attack > 150 ||
     input.defense > 150 ||
-    input.speed > 150;
+    input.speed > 150 ||
+    input.height > 500 ||
+    input.weight > 500;
   return (
     <>
       <div className="bodyForm">
+        {" "}
         <div className="NavLinkContainer">
           <NavLink className="NavLinkForm" to="/home">
             Volver a Home
           </NavLink>
         </div>
-        <div className="form-container">
+        <div className="form">
           <div className="div-container">
             <div>
               <h3>Crea tu propio Pokemon</h3>
@@ -133,68 +139,69 @@ const Form = () => {
             <div>
               <div>
                 <div>
-                  <label>Nombre</label> <br />
-                  <input
-                    autoComplete="off"
-                    className="input-item"
-                    value={input.name}
-                    name="name"
-                    onChange={(event) => {
-                      handleChange(event);
-                    }}
-                    type="text"
-                    placeholder="Nombre"
-                  />{" "}
-                    {errors.name && <div className="Errors">{errors.name}</div>}<label>Hp</label><br />
-                  <input
-                    autoComplete="off"
-                    className="input-item"
-                    value={input.hp}
-                    name="hp"
-                    onChange={(event) => {
-                      handleChange(event);
-                    }}
-                    type="number"
-                    placeholder="Hp (1-150)"
-                  />
-                  <br />
-               
-                  {errors.hp && <div className="Errors">{errors.hp}</div>}
-               
-                  <label>Attack</label> 
-                  <input
-                    autoComplete="off"
-                    className="input-item"
-                    value={input.attack}
-                    name="attack"
-                    onChange={(event) => {
-                      handleChange(event);
-                    }}
-                    type="number"
-                    placeholder="Ataque (1-150)"
-                  />{" "} {errors.attack && (
-                    <div className="Errors">{errors.attack}</div>
-                  )}
-                 <label>Defense</label><br />
-                  <input
-                    autoComplete="off"
-                    className="input-item"
-                    value={input.defense}
-                    name="defense"
-                    onChange={(event) => {
-                      handleChange(event);
-                    }}
-                    type="number"
-                    placeholder="Defensa (1-150)"
-                  />
-                  <br />
-                 
-                  {errors.defense && (
-                    <div className="Errors">{errors.defense}</div>
-                  )}
-              
-                  <label>Speed</label> 
-                  <br />
+                  <div>
+                    <div className="h2Form">Nombre</div>
+                    <input
+                      autoComplete="off"
+                      className="input-item"
+                      value={input.name}
+                      name="name"
+                      onChange={(event) => {
+                        handleChange(event);
+                      }}
+                      type="text"
+                      placeholder="Nombre"
+                    />{" "}
+                    {errors.name && <div className="Errors">{errors.name}</div>}
+                    <div className="h2Form">Hp</div>
+                    <input
+                      autoComplete="off"
+                      className="input-item"
+                      value={input.hp}
+                      name="hp"
+                      onChange={(event) => {
+                        handleChange(event);
+                      }}
+                      type="number"
+                      placeholder="Hp (1-150)"
+                    />
+                    {errors.hp && <div className="Errors">{errors.hp}</div>}
+                  </div>
+                  <div>
+                    <div className="h2FormAttack">Attack</div>
+                    <input
+                      autoComplete="off"
+                      className="input-item"
+                      value={input.attack}
+                      name="attack"
+                      onChange={(event) => {
+                        handleChange(event);
+                      }}
+                      type="number"
+                      placeholder="Ataque (1-150)"
+                    />{" "}
+                    {errors.attack && (
+                      <div className="Errors">{errors.attack}</div>
+                    )}
+                    <div className="h2Form">Defense</div>
+                    <input
+                      autoComplete="off"
+                      className="input-item"
+                      value={input.defense}
+                      name="defense"
+                      onChange={(event) => {
+                        handleChange(event);
+                      }}
+                      type="number"
+                      placeholder="Defensa (1-150)"
+                    />
+                    {errors.defense && (
+                      <div className="Errors">{errors.defense}</div>
+                    )}
+                  </div>
+
+                  <div className="h2FormSpeed">Speed</div>
+
                   <input
                     autoComplete="off"
                     className="input-item"
@@ -206,9 +213,9 @@ const Form = () => {
                     type="number"
                     placeholder="Velocidad(1-150)"
                   />
-  {errors.speed && <div className="Errors">{errors.speed}</div>}<br></br>
+                  {errors.speed && <div className="Errors">{errors.speed}</div>}
 
-                 <label>Height</label>
+                  <div className="h2Form">Height</div>
                   <input
                     autoComplete="off"
                     className="input-item"
@@ -220,15 +227,12 @@ const Form = () => {
                     type="number"
                     placeholder="Altura"
                   />
-                  <br />
-                
+
                   {errors.height && (
                     <div className="Errors">{errors.height}</div>
                   )}
                 </div>
-
-                <label>Weight</label>
-
+                <div className="h2FormWeight">Weight</div>
                 <input
                   autoComplete="off"
                   className="input-item"
@@ -239,8 +243,9 @@ const Form = () => {
                   }}
                   type="number"
                   placeholder="Peso"
-                />  {errors.weight && <div className="Errors">{errors.weight}</div>}
-                <label>Image</label><br />
+                />{" "}
+                {errors.weight && <div className="Errors">{errors.weight}</div>}
+                <div className="h2Form">Image</div>
                 <input
                   autoComplete="off"
                   className="input-item"
@@ -253,9 +258,8 @@ const Form = () => {
                   placeholder="Inserta tu url"
                 />
               </div>{" "}
-            
-              <br />
               <select
+                className="select"
                 disabled={input.types.length === 2}
                 onChange={(e) => handleSelect(e)}
                 name="types"
@@ -266,7 +270,7 @@ const Form = () => {
                 </option>
                 {types?.map((type, index) => {
                   return (
-                    <option key={index} value={type}>
+                    <option className="types" key={index} value={type}>
                       {type}
                     </option>
                   );
@@ -277,6 +281,7 @@ const Form = () => {
                   <div key={type}>
                     <p key={type}>{type}</p>
                     <button
+                      className="deleteButton"
                       value={type}
                       onClick={(event) => handleDelete(event)}
                     >
@@ -295,7 +300,7 @@ const Form = () => {
                 onClick={(event) => {
                   handleSubmit(event);
                 }}
-                className="crearBtn"
+                className="submit"
               />
             </div>
           </div>

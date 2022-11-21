@@ -1,15 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
+import "./Error.css"
 const Error=()=>{
+    const reload=()=>{
+        window.location.reload()
+    }
     return(
-        <>
-        <h1>Lo siento, ha ocurrido un error</h1>
-        <img src="https://i.pinimg.com/originals/b3/55/91/b35591e5d2ad32b8604b254861d59f58.gif" alt="" />
+        <div className='errorBackground'>
+        <h1 className='h1Error'>Lo siento, ha ocurrido un error</h1>
+        <img className='imgError' src="https://www.gratistodo.com/wp-content/uploads/2016/12/Pokemon-gifs-16.gif" alt="" />
         <br />
-        <p>Vuelve a casa por favor</p>
-        <NavLink to="/home">Volver a Home</NavLink>
-        </>
+        <p className='pError'>Vuelve a casa por favor</p>
+        <button className='buttonError' onClick={reload}>Volver a Home</button>
+        </div>
         
     )
 }

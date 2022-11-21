@@ -25,11 +25,13 @@ export const Home = () => {
   };
 
   useEffect(() => {
+   
     dispatch(getAllPokemons());
-  }, [dispatch]);
+  }, []);
   if (error) {
     return <Error />;
-  } else if (allPokemons.length) {
+  }
+  if (allPokemons.length) {
     return (
       <>
         <div className="bodyHome">

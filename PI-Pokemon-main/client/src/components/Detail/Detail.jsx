@@ -10,7 +10,7 @@ const Detail = () => {
   const pokemonDetail = useSelector((state) => state.pokemonDetail);
   useEffect(() => {
     dispatch(getPokemonById(id));
-  }, [dispatch, id]);
+  }, []);
   if (
     pokemonDetail.hasOwnProperty("name") &&
     (pokemonDetail.id === parseInt(id) || pokemonDetail.id === id)

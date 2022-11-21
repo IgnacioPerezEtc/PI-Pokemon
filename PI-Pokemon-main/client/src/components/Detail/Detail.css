@@ -41,13 +41,16 @@
 }
 .NavLinkDetail {
   margin: 10px;
-  padding: 12px 17px;
+  padding: 12px 12px;
   display: inline-block;
   border: none;
-  background-color: #9b0000;
+  background-color: #1c3651;
   color: #fff;
   border-radius: 2px;
   text-decoration: none;
+}
+.NavLinkDetail:hover {
+  background-color: #001028;
 }
 .loadingContainer {
   background-image: url("https://i.blogs.es/02534d/rubizafiro/1366_2000.jpeg");

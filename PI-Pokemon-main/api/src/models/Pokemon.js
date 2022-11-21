@@ -22,8 +22,8 @@ module.exports = (sequelize) => {
       attack: { type: DataTypes.INTEGER, validate: { min: 1, max: 150 } },
       defense: { type: DataTypes.INTEGER, validate: { min: 1, max: 150 } },
       speed: { type: DataTypes.INTEGER, validate: { min: 1, max: 150 } },
-      height: { type: DataTypes.INTEGER },
-      weight: { type: DataTypes.INTEGER },
+      height: { type: DataTypes.INTEGER, validate: { min: 1, max: 500 }},
+      weight: { type: DataTypes.INTEGER, validate: { min: 1, max: 500} },
       image: {
         type: DataTypes.STRING,
         defaultValue:
