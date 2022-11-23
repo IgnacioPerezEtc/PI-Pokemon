@@ -9,16 +9,15 @@
 }
 
 .form {
-  position:relative;
-  top:-30px;
+  position: relative;
+  top: -30px;
   padding-top: 20px;
-  font-family: "Rubik", sans-serif;
   font-weight: 200;
   font-size: 15px;
   display: inline-block;
   border-radius: 7px;
   background-color: #f8f7f7;
-  padding: 20px 40px 20px 40px ;
+  padding: 20px 40px 20px 40px;
 }
 
 .input-item {
@@ -43,7 +42,6 @@
   border-radius: 20px;
   border: none;
   background-color: #f8f7f7;
-  font-family: "Rubik", sans-serif;
 }
 
 .select:focus {
@@ -67,24 +65,22 @@
   border-radius: 8px;
   background-color: #1c3651;
   color: #fff;
-  font-family: "Rubik", sans-serif;
   cursor: pointer;
   border: none;
   margin-top: 5px;
 }
-.submit:hover{
+.submit:hover {
   background-color: #001028;
 }
 .Errors {
-  font-family: "Rubik", sans-serif;
   font-size: 11px;
   font-weight: 400;
   margin-top: 5px;
   color: red;
 }
 .NavLinkContainer {
-display: flex;
-justify-content: left;
+  display: flex;
+  justify-content: left;
 }
 .NavLinkForm {
   cursor: pointer;
@@ -97,6 +93,9 @@ justify-content: left;
   background-color: #1c3651;
   color: #fff;
 }
-.NavLinkForm:hover{
+.NavLinkForm:hover {
   background-color: #001028;
+}
+.pForm {
+  display: inline-block;
 }

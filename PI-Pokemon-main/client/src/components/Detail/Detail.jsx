@@ -10,12 +10,11 @@ const Detail = () => {
   const pokemonDetail = useSelector((state) => state.pokemonDetail);
   useEffect(() => {
     dispatch(getPokemonById(id));
-  }, []);
+  }, [dispatch, id]);
   if (
     pokemonDetail.hasOwnProperty("name") &&
     (pokemonDetail.id === parseInt(id) || pokemonDetail.id === id)
   ) {
-    //if(false){
     return (
       <>
         <div className="bodyDetail">
@@ -24,7 +23,6 @@ const Detail = () => {
               Volver a Home
             </NavLink>
           </div>
-
           <div className="pokemonContainer">
             <h1 className="pokemonTitle">
               {pokemonDetail.name.charAt(0).toUpperCase() +
@@ -39,13 +37,11 @@ const Detail = () => {
               <p className="p-item">Height: {pokemonDetail.height}</p>
               <p className="p-item">Weight: {pokemonDetail.weight}</p>
             </div>
-
             <p className="span-item">
               Types:
               {pokemonDetail.types.map((type) => {
                 return (
                   <span key={type.name} className="type">
-                    
                     {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
                   </span>
                 );

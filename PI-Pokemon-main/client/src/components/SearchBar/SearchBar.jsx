@@ -52,9 +52,9 @@ export const SearchBar = () => {
     }
     dispatch(orderByAttack(value));
   };
-  const reload=()=>{
-    window.location.reload()
-}
+  const reload = () => {
+    window.location.reload();
+  };
   const handleChangeByType = (event) => {
     event.preventDefault();
     let value = event.target.value;
@@ -93,7 +93,11 @@ export const SearchBar = () => {
         <div className="NavLinkContainer"></div>
       </div>
       <div className="flex-container">
-        <div> <button onClick={reload} className="Refresh">Refresh</button>
+        <div>
+          {" "}
+          <button onClick={reload} className="Refresh">
+            Refresh
+          </button>
           <select
             onChange={(event) => handleChangeAlphabetically(event)}
             defaultValue="title"
@@ -140,18 +144,13 @@ export const SearchBar = () => {
             defaultValue="title"
             className="inputHome"
           >
-            <option value="title" disabled name="CreadoOExistente">
-              Filtrado por creado o existente
-            </option>
-            <option value="Todos">Todos</option>
-            <option value="Existente">Existente</option>
-            <option value="Creado">Creado</option>
+            <option value="Todos">Ordenar por todos</option>
+            <option value="Existente">Ordenar por existente</option>
+            <option value="Creado">Ordenar por creado</option>
           </select>
-          
           <NavLink className={"btnHome"} to="/form">
             Crea tu propio pokemon
           </NavLink>
-         
         </div>
       </div>
     </>

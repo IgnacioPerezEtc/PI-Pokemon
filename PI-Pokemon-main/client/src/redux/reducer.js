@@ -133,7 +133,8 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_BY_TYPE:
       const allPokemonsFT = state.allPokemons;
       let pokemonByType = [];
-      const idPokemon =
+      // eslint-disable-next-line no-unused-vars
+      const idType =
         action.payload === "all"
           ? allPokemonsFT
           : allPokemonsFT.forEach((pokemon) =>

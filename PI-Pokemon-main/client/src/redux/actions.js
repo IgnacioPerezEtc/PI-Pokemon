@@ -14,7 +14,7 @@ export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export function getAllPokemons() {
   return async function (dispatch) {
     try {
-      const json = await axios.get(" http://localhost:3001/pokemons");
+      const json = await axios.get("http://localhost:3001/pokemons");
       return dispatch({
         type: GET_ALL_POKEMONS,
         payload: json.data,

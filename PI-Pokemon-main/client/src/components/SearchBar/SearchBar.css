@@ -96,4 +96,5 @@ background-color: #001028;
 }
 .Refresh:hover{
   background-color: #001028;
+  cursor: pointer;
 }

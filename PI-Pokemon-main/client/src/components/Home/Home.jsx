@@ -25,9 +25,8 @@ export const Home = () => {
   };
 
   useEffect(() => {
-   
     dispatch(getAllPokemons());
-  }, []);
+  }, [dispatch]);
   if (error) {
     return <Error />;
   }
@@ -46,6 +45,8 @@ export const Home = () => {
                   name={pokemon.name}
                   image={pokemon.image}
                   types={pokemon.types}
+                  weight={pokemon.weight}
+                  height={pokemon.height}
                 />
               );
             })}

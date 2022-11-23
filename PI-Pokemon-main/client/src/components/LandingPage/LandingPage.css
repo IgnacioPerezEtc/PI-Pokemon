@@ -1,12 +1,15 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@0;1&display=swap');
+*{
+    font-family: 'Source Sans Pro', sans-serif;}
 .tituloLandingPage{
     padding-top:70px ;
-    color: #fff;
+color: #000408;
+font-weight: 700;
     align-items: center;
-    margin-bottom: 4.8em;
+    margin-bottom: 6.8em;
 }
 .bodyLandingPage{
-    background-image: url("https://wallpapercave.com/wp/wp10948256.jpg");
+    background-image: url("https://images8.alphacoders.com/836/836499.jpg");
     background-size:cover ;
      background-repeat: no-repeat;
      background-attachment: fixed;
@@ -17,9 +20,12 @@
 .btnLandingPage{
     text-decoration: none;
     color: #fff;
-    padding: 1.2em 1.5em;
+    margin-left: 60px;
+    border-radius: 30px;
+    padding: 1.5em 1.9em;
     background-color: #1c3651;;
 }
 .btnLandingPage:hover{
-    background-color: #001028;
+    transition: all 0.2s;
+    background-color: #000408;
 }

@@ -7,10 +7,20 @@ import "./Form.css";
 const Form = () => {
   function validate(input) {
     const errors = {};
-    if (!input.name || input.name.length < 3) {
-      errors.name = "Debe tener un nombre de mas de tres letras";
+    if (
+      !input.name ||
+      input.name.length < 3 ||
+      /[0-9]/.test(input.name) ||
+      /[/_*@#%!&"?¿`+{},.:;()+-]/.test(input.name)
+    ) {
+      errors.name = "El nombre no debe contener caracteres especiales";
     }
-    if (!input.hp || input.hp < 0 || input.hp > 150) {
+    if (
+      !input.hp ||
+      input.hp < 0 ||
+      input.hp > 150 ||
+      /[/_*@#%!&"?¿`+{},.:;()+-]/.test(input.hp)
+    ) {
       errors.hp = "Debe tener hp entre 1 - 150";
     }
 
@@ -21,20 +31,15 @@ const Form = () => {
     if (!input.defense || input.defense < 0 || input.defense > 150) {
       errors.defense = "Debe tener defensa entre 1 - 150";
     }
-
     if (!input.speed || input.speed < 0 || input.speed > 150) {
       errors.speed = "Debe tener velocidad entre 1 - 150";
     }
-    if (!input.weight || input.speed < 0 || input.speed > 1000) {
+    if (!input.weight || input.weight < 0 || input.weight > 500) {
       errors.weight = "Debe tener peso entre 1-500";
     }
-    if (!input.height || input.speed < 0 || input.speed > 1000) {
+    if (!input.height || input.height < 0 || input.height > 500) {
       errors.height = "Debe tener altura entre 1-500";
     }
-
-    //if (input.types.length === 0) {
-    //errors.types = "Debe tener por lo menos un tipo";
-    //}
     return errors;
   }
   const dispatch = useDispatch();
@@ -120,7 +125,9 @@ const Form = () => {
     input.defense > 150 ||
     input.speed > 150 ||
     input.height > 500 ||
-    input.weight > 500;
+    input.weight > 500 ||
+    /[0-9]/.test(input.name) ||
+    /[/_*@#%!&"?¿`+{},.:;()+-]/.test(input.name);
   return (
     <>
       <div className="bodyForm">
@@ -163,7 +170,7 @@ const Form = () => {
                         handleChange(event);
                       }}
                       type="number"
-                      placeholder="Hp (1-150)"
+                      placeholder="1-150"
                     />
                     {errors.hp && <div className="Errors">{errors.hp}</div>}
                   </div>
@@ -178,7 +185,7 @@ const Form = () => {
                         handleChange(event);
                       }}
                       type="number"
-                      placeholder="Ataque (1-150)"
+                      placeholder="1-150"
                     />{" "}
                     {errors.attack && (
                       <div className="Errors">{errors.attack}</div>
@@ -193,7 +200,7 @@ const Form = () => {
                         handleChange(event);
                       }}
                       type="number"
-                      placeholder="Defensa (1-150)"
+                      placeholder="1-150"
                     />
                     {errors.defense && (
                       <div className="Errors">{errors.defense}</div>
@@ -211,7 +218,7 @@ const Form = () => {
                       handleChange(event);
                     }}
                     type="number"
-                    placeholder="Velocidad(1-150)"
+                    placeholder="1-150"
                   />
                   {errors.speed && <div className="Errors">{errors.speed}</div>}
 
@@ -225,7 +232,7 @@ const Form = () => {
                       handleChange(event);
                     }}
                     type="number"
-                    placeholder="Altura"
+                    placeholder="1-500"
                   />
 
                   {errors.height && (
@@ -257,7 +264,7 @@ const Form = () => {
                   type="text"
                   placeholder="Inserta tu url"
                 />
-              </div>{" "}
+              </div>
               <select
                 className="select"
                 disabled={input.types.length === 2}
@@ -279,7 +286,9 @@ const Form = () => {
               {input.types?.map((type) => {
                 return (
                   <div key={type}>
-                    <p key={type}>{type}</p>
+                    <p className="pForm" key={type}>
+                      {type}
+                    </p>
                     <button
                       className="deleteButton"
                       value={type}

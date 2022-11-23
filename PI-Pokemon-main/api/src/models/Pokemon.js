@@ -22,14 +22,15 @@ module.exports = (sequelize) => {
       attack: { type: DataTypes.INTEGER, validate: { min: 1, max: 150 } },
       defense: { type: DataTypes.INTEGER, validate: { min: 1, max: 150 } },
       speed: { type: DataTypes.INTEGER, validate: { min: 1, max: 150 } },
-      height: { type: DataTypes.INTEGER, validate: { min: 1, max: 500 }},
-      weight: { type: DataTypes.INTEGER, validate: { min: 1, max: 500} },
+      height: { type: DataTypes.INTEGER, validate: { min: 1, max: 500 } },
+      weight: { type: DataTypes.INTEGER, validate: { min: 1, max: 500 } },
       image: {
         type: DataTypes.STRING,
         defaultValue:
           "https://vader.news/__export/1588965166057/sites/gadgets/img/2020/05/08/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png_423682103.png",
+        validate: { isUrl: true },
       },
-      abilities: { type: DataTypes.JSON },
+
       createdInDb: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

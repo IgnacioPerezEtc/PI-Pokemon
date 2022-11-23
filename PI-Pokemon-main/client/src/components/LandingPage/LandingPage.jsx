@@ -6,7 +6,7 @@ const LandingPage = () => {
         <>
         <div className="bodyLandingPage">
             <div>
-                   <h1 className="tituloLandingPage">Bienvenido a mi Proyecto Individual</h1>
+                   <h1 className="tituloLandingPage">Bienvenido a mi PI de Pokemon</h1>
             </div>
            <div>
               <NavLink className="btnLandingPage"to="/home">Ir a home</NavLink>

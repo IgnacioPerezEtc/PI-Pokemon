@@ -5,7 +5,6 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const PokemonFunctions = require("../controllers/PokemonFunctions.js");
-const { Pokemon, Type } = require("../db");
 
 router.get("/pokemons", async (req, res) => {
   try {
