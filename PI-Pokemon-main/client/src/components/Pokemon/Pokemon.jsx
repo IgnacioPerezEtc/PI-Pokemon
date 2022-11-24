@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./Pokemon.css";
-export const Pokemon = ({ name, image, types, id,weight,height }) => {
+export const Pokemon = ({ name, image, types, id}) => {
   return (
     <>
       <NavLink className="pokemonContainer" to={`/home/${id}`}>

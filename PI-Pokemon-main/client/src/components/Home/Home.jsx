@@ -52,6 +52,7 @@ export const Home = () => {
             })}
           </div>
           <Paginado
+            currentPage={currentPage}
             pokemonsPerPage={pokemonsPerPage}
             allPokemons={allPokemons.length}
             paginado={paginado}

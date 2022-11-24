@@ -1,5 +1,7 @@
 const { Pokemon, Type } = require("../db.js");
 const axios = require("axios");
+const { where } = require("sequelize");
+const { param } = require("../routes/index.js");
 const url = "https://pokeapi.co/api/v2/pokemon";
 const url2 = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20";
 let arrayPokemons = [];
@@ -65,7 +67,7 @@ let getPokemonDetail = async (name) => {
   await getInfoPokemons();
   let pokemon = [];
   if (name) {
-    name=name.toLowerCase()
+    name = name.toLowerCase();
     pokemon = arrayPokemons.filter((poke) => poke.name === name);
     if (pokemon.length > 0) {
       return pokemon;
@@ -117,6 +119,32 @@ let createPokemon = async (parametros) => {
     return `El pokemon ${name} ha sido creado`;
   }
 };
+let editPokemon = async (id, parametros) => {
+  const { name, types } = parametros;
+  if (parametros.image === "") {
+    parametros.image =
+      "https://vader.news/__export/1588965166057/sites/gadgets/img/2020/05/08/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png_423682103.png";
+  }
+  if (!name) {
+    throw new Error("Faltan datos necesarios para editar el pokemon");
+  } else {
+    console.log(id, parametros);
+    parametros.name = parametros.name.toLowerCase();
+    const editPokemon = await Pokemon.findByPk(id);
+    await editPokemon.update(parametros, {
+      where: {
+        id: id,
+      },
+    });
+    const typesDb = await Type.findAll({
+      where: {
+        name: types,
+      },
+    });
+    await editPokemon.setTypes(typesDb);
+    return `El pokemon ${name} ha sido editado`;
+  }
+};
 
 module.exports = {
   getInfoPokemons,
@@ -124,4 +152,5 @@ module.exports = {
   getPokemonDetailById,
   createPokemon,
   getPokemonTypes,
+  editPokemon,
 };

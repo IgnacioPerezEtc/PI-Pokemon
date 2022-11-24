@@ -33,7 +33,19 @@ export function setError(payload) {
     payload,
   };
 }
+export function editPokemon(id, params) {
+  return async function () {
+    const edited = await axios.put(`http://localhost:3001/edit/${id}`, params);
+    return edited;
+  };
+}
 
+export function deletePokemon(id) {
+  return async function () {
+    const deleted = await axios.delete(`http://localhost:3001/delete/${id}`);
+    return deleted;
+  };
+}
 export function getPokemonById(id) {
   return async function (dispatch) {
     try {

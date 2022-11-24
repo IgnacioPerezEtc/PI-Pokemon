@@ -12,3 +12,6 @@
 .buttonPaginado:focus{
     background:#1c3651;
 }
+.liPaginado{
+    display: inline-block;
+}

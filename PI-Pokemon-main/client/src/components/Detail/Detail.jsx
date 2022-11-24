@@ -1,13 +1,20 @@
 import React from "react";
 import "./Detail.css";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getPokemonById } from "../../redux/actions.js";
+import { deletePokemon, getPokemonById } from "../../redux/actions.js";
 const Detail = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { id } = useParams();
   const pokemonDetail = useSelector((state) => state.pokemonDetail);
+  const handleDelete = (event) => {
+    dispatch(deletePokemon(pokemonDetail.id));
+    alert("Se ha eliminado correctamente el pokemon");
+    history.push("/home");
+    window.location.reload();
+  };
   useEffect(() => {
     dispatch(getPokemonById(id));
   }, [dispatch, id]);
@@ -46,6 +53,12 @@ const Detail = () => {
                   </span>
                 );
               })}
+               {pokemonDetail.createdInDb && (
+              <div>
+                <button className="buttonDelete" onClick={(event) => handleDelete(event)}>Delete</button>
+                <NavLink className="buttonEdit" to={`/edit/${pokemonDetail.id}`}>Edit</NavLink>
+              </div>
+            )}
             </p>
           </div>
         </div>
