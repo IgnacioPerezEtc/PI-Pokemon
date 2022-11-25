@@ -34,7 +34,7 @@ export const Home = () => {
     return (
       <>
         <div className="bodyHome">
-          <SearchBar />
+          <SearchBar setCurrentPage={setCurrentPage} />
 
           <div>
             {currentPokemons.map((pokemon) => {

@@ -1,7 +1,7 @@
 const { Pokemon, Type } = require("../db.js");
 const axios = require("axios");
 const { where } = require("sequelize");
-const { param } = require("../routes/index.js");
+
 const url = "https://pokeapi.co/api/v2/pokemon";
 const url2 = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20";
 let arrayPokemons = [];
@@ -128,7 +128,6 @@ let editPokemon = async (id, parametros) => {
   if (!name) {
     throw new Error("Faltan datos necesarios para editar el pokemon");
   } else {
-    console.log(id, parametros);
     parametros.name = parametros.name.toLowerCase();
     const editPokemon = await Pokemon.findByPk(id);
     await editPokemon.update(parametros, {

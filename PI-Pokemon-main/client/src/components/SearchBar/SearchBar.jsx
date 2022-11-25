@@ -11,8 +11,9 @@ import {
   orderAlphabetically,
   orderByAttack,
 } from "../../redux/actions";
+
 import Error from "../Error/Error.jsx";
-export const SearchBar = () => {
+export const SearchBar = ({setCurrentPage}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTypes());
@@ -25,6 +26,7 @@ export const SearchBar = () => {
   const error = useSelector((state) => state.error);
   const handleSubmit = (event) => {
     event.preventDefault();
+    setCurrentPage(1)
     dispatch(getPokemonByName(input));
     setInput("");
   };
@@ -101,8 +103,7 @@ export const SearchBar = () => {
           <select
             onChange={(event) => handleChangeAlphabetically(event)}
             defaultValue="title"
-            className="inputHome"
-          >
+            className="inputHome">
             <option value="title" disabled name="Alfabetico">
               Ordenar Alfabeticamente
             </option>
