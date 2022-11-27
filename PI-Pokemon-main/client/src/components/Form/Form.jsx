@@ -157,8 +157,7 @@ const Form = () => {
                         handleChange(event);
                       }}
                       type="text"
-                      placeholder="Nombre"
-                    />{" "}
+                      placeholder="Nombre"/>
                     {errors.name && <div className="Errors">{errors.name}</div>}
                     <div className="h2Form">Hp</div>
                     <input

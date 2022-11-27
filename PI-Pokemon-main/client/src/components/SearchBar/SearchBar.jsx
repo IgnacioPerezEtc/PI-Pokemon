@@ -13,7 +13,7 @@ import {
 } from "../../redux/actions";
 
 import Error from "../Error/Error.jsx";
-export const SearchBar = ({setCurrentPage}) => {
+export const SearchBar = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTypes());
@@ -26,7 +26,7 @@ export const SearchBar = ({setCurrentPage}) => {
   const error = useSelector((state) => state.error);
   const handleSubmit = (event) => {
     event.preventDefault();
-    setCurrentPage(1)
+    setCurrentPage(1);
     dispatch(getPokemonByName(input));
     setInput("");
   };
@@ -36,14 +36,12 @@ export const SearchBar = ({setCurrentPage}) => {
     if (value === "Todos") {
       dispatch(getAllPokemons());
     }
+    if(value)
     dispatch(filterCreated(value));
   };
   const handleChangeAlphabetically = (event) => {
     event.preventDefault();
     let value = event.target.value;
-    if (value === "default") {
-      dispatch(getAllPokemons());
-    }
     dispatch(orderAlphabetically(value));
   };
   const handleChangeByAttack = (event) => {
@@ -64,11 +62,20 @@ export const SearchBar = ({setCurrentPage}) => {
       dispatch(getAllPokemons());
     }
     dispatch(filterByType(value));
+    setSelectTypes({ type: [value] });
+  };
+  const [selectTypes, setSelectTypes] = useState({ type: [] });
+  const handleDeleteType = (event) => {
+    event.preventDefault();
+    setSelectTypes({
+      type: [],
+    });
+    window.location.reload();
+    dispatch(getAllPokemons());
   };
   if (error) {
     return (
       <div>
-        <p>Estoy entrando aca</p>
         <Error />
       </div>
     );
@@ -103,7 +110,8 @@ export const SearchBar = ({setCurrentPage}) => {
           <select
             onChange={(event) => handleChangeAlphabetically(event)}
             defaultValue="title"
-            className="inputHome">
+            className="inputHome"
+          >
             <option value="title" disabled name="Alfabetico">
               Ordenar Alfabeticamente
             </option>
@@ -138,6 +146,21 @@ export const SearchBar = ({setCurrentPage}) => {
               );
             })}
           </select>
+          
+            {selectTypes.type?.map((type, index) => {
+              console.log(type)
+              return (
+                <div key={index}>
+                  <p className="pForm" key={type}>
+                    {type}
+                  </p>
+                  <button onClick={(event) => handleDeleteType(event)}>
+                    x
+                  </button>
+                </div>
+              );
+            })}
+       
           <select
             onChange={(event) => {
               handleChangeByExisting(event);

@@ -13,7 +13,6 @@ import {
 // Importa las actions types que necesites acá:
 
 const initialState = {
-  allPokemons: [],
   pokemons: [],
   pokemonDetail: {},
   types: [],
@@ -28,7 +27,6 @@ const rootReducer = (state = initialState, action) => {
         return {
           ...state,
           pokemons: action.payload,
-          allPokemons: action.payload,
         };
       } else {
         return {
@@ -55,7 +53,7 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case FILTER_CREATED:
-      const array = state.allPokemons;
+      const array = [...state.pokemons];
       let FilterPokemons;
       if (action.payload === "Creado") {
         FilterPokemons = array.filter((pokemon) => {
@@ -131,7 +129,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case FILTER_BY_TYPE:
-      const allPokemonsFT = state.allPokemons;
+      const allPokemonsFT = [...state.pokemons];
       let pokemonByType = [];
       // eslint-disable-next-line no-unused-vars
       const idType =
