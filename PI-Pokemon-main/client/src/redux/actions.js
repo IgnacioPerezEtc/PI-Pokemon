@@ -22,7 +22,7 @@ export function getAllPokemons() {
     } catch (error) {
       return dispatch({
         type: ERROR,
-        payload: true,
+        payload: "No se han cargado los pokemons",
       });
     }
   };
@@ -57,7 +57,7 @@ export function getPokemonById(id) {
     } catch (error) {
       return dispatch({
         type: ERROR,
-        payload: true,
+        payload: "No se ha encontrado el pokemon con ese id",
       });
     }
   };
@@ -76,7 +76,7 @@ export const getPokemonByName = (name) => {
     } catch (error) {
       return dispatch({
         type: ERROR,
-        payload: true,
+        payload: "No existe el pokemon con ese nombre",
       });
     }
   };

@@ -10,10 +10,10 @@
 
 border-radius: 40px;
 }
-.h1Error{
+.titleError{
     padding:10px ;
 }
-.pError{
+.textError{
     font-size: 23px;
     font-weight: 600;
 }

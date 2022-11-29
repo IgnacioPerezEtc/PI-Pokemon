@@ -5,6 +5,7 @@ import {
   getAllPokemons,
   getTypes,
 } from "../../redux/actions";
+import "./editPokemon.css"
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 const EditPokemon = () => {
@@ -139,7 +140,7 @@ const EditPokemon = () => {
                     <div className="h2Form">Nombre</div>
                     <input
                       autoComplete="off"
-                      className="input-item"
+                      className="inputItem"
                       value={input.name}
                       name="name"
                       onChange={(event) => {
@@ -152,7 +153,7 @@ const EditPokemon = () => {
                     <div className="h2Form">Hp</div>
                     <input
                       autoComplete="off"
-                      className="input-item"
+                      className="inputItem"
                       value={input.hp}
                       name="hp"
                       onChange={(event) => {
@@ -167,7 +168,7 @@ const EditPokemon = () => {
                     <div className="h2FormAttack">Attack</div>
                     <input
                       autoComplete="off"
-                      className="input-item"
+                      className="inputItem"
                       value={input.attack}
                       name="attack"
                       onChange={(event) => {
@@ -182,7 +183,7 @@ const EditPokemon = () => {
                     <div className="h2Form">Defense</div>
                     <input
                       autoComplete="off"
-                      className="input-item"
+                      className="inputItem"
                       value={input.defense}
                       name="defense"
                       onChange={(event) => {
@@ -200,7 +201,7 @@ const EditPokemon = () => {
 
                   <input
                     autoComplete="off"
-                    className="input-item"
+                    className="inputItem"
                     value={input.speed}
                     name="speed"
                     onChange={(event) => {
@@ -214,7 +215,7 @@ const EditPokemon = () => {
                   <div className="h2Form">Height</div>
                   <input
                     autoComplete="off"
-                    className="input-item"
+                    className="inputItem"
                     value={input.height}
                     name="height"
                     onChange={(event) => {
@@ -231,7 +232,7 @@ const EditPokemon = () => {
                 <div className="h2FormWeight">Weight</div>
                 <input
                   autoComplete="off"
-                  className="input-item"
+                  className="inputItem"
                   value={input.weight}
                   name="weight"
                   onChange={(event) => {
@@ -244,7 +245,7 @@ const EditPokemon = () => {
                 <div className="h2Form">Image</div>
                 <input
                   autoComplete="off"
-                  className="input-item"
+                  className="inputItem"
                   value={input.image}
                   name="image"
                   onChange={(event) => {

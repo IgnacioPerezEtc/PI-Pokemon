@@ -138,7 +138,7 @@ const Form = () => {
           </NavLink>
         </div>
         <div className="form">
-          <div className="div-container">
+          <div className="divContainer">
             <div>
               <h3>Crea tu propio Pokemon</h3>
             </div>
@@ -150,7 +150,7 @@ const Form = () => {
                     <div className="h2Form">Nombre</div>
                     <input
                       autoComplete="off"
-                      className="input-item"
+                      className="inputItem"
                       value={input.name}
                       name="name"
                       onChange={(event) => {
@@ -162,7 +162,7 @@ const Form = () => {
                     <div className="h2Form">Hp</div>
                     <input
                       autoComplete="off"
-                      className="input-item"
+                      className="inputItem"
                       value={input.hp}
                       name="hp"
                       onChange={(event) => {
@@ -177,7 +177,7 @@ const Form = () => {
                     <div className="h2FormAttack">Attack</div>
                     <input
                       autoComplete="off"
-                      className="input-item"
+                      className="inputItem"
                       value={input.attack}
                       name="attack"
                       onChange={(event) => {
@@ -192,7 +192,7 @@ const Form = () => {
                     <div className="h2Form">Defense</div>
                     <input
                       autoComplete="off"
-                      className="input-item"
+                      className="inputItem"
                       value={input.defense}
                       name="defense"
                       onChange={(event) => {
@@ -210,7 +210,7 @@ const Form = () => {
 
                   <input
                     autoComplete="off"
-                    className="input-item"
+                    className="inputItem"
                     value={input.speed}
                     name="speed"
                     onChange={(event) => {
@@ -224,7 +224,7 @@ const Form = () => {
                   <div className="h2Form">Height</div>
                   <input
                     autoComplete="off"
-                    className="input-item"
+                    className="inputItem"
                     value={input.height}
                     name="height"
                     onChange={(event) => {
@@ -241,7 +241,7 @@ const Form = () => {
                 <div className="h2FormWeight">Weight</div>
                 <input
                   autoComplete="off"
-                  className="input-item"
+                  className="inputItem"
                   value={input.weight}
                   name="weight"
                   onChange={(event) => {
@@ -254,7 +254,7 @@ const Form = () => {
                 <div className="h2Form">Image</div>
                 <input
                   autoComplete="off"
-                  className="input-item"
+                  className="inputItem"
                   value={input.image}
                   name="image"
                   onChange={(event) => {

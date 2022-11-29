@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SearchBar } from "../SearchBar/SearchBar";
-import "./Home.css";
+import style from "./Home.module.css";
 import { NavLink } from "react-router-dom";
 import { getAllPokemons } from "../../redux/actions.js";
 import { useEffect } from "react";
@@ -34,10 +34,8 @@ export const Home = () => {
   if (allPokemons.length) {
     return (
       <>
-        <div className="bodyHome">
-          <SearchBar
-            setCurrentPage={setCurrentPage}
-          />
+        <div className={style.bodyHome}>
+          <SearchBar setCurrentPage={setCurrentPage} />
 
           <div>
             {currentPokemons.map((pokemon) => {
@@ -60,7 +58,7 @@ export const Home = () => {
             allPokemons={allPokemons.length}
             paginado={paginado}
           />
-          <NavLink className="NavLinkToLanding" to="/">
+          <NavLink className={style.NavLinkToLanding} to="/">
             Volver a inicio
           </NavLink>
         </div>
@@ -68,12 +66,12 @@ export const Home = () => {
     );
   } else {
     return (
-      <div className="loadingContainer">
+      <div className={style.loadingContainer}>
         <SearchBar></SearchBar>
         <div>
           <h1>Loading</h1>
         </div>
-        <div className="loadingImgContainer">
+        <div className={style.loadingImgContainer}>
           <img
             src="https://i.pinimg.com/originals/66/89/dc/6689dc331be27e66349ce9a4d15ddff3.gif"
             alt=""

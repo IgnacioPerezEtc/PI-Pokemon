@@ -9,8 +9,6 @@
 }
 
 .form {
-  position: relative;
-  top: -30px;
   padding-top: 20px;
   font-weight: 200;
   font-size: 15px;
@@ -20,7 +18,7 @@
   padding: 20px 40px 20px 40px;
 }
 
-.input-item {
+.inputItem {
   margin-top: 5px;
   padding-left: 15px;
   height: 30px;

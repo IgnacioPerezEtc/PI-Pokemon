@@ -17,7 +17,8 @@ const Detail = () => {
   };
   useEffect(() => {
     dispatch(getPokemonById(id));
-  }, [dispatch, id]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   if (
     pokemonDetail.hasOwnProperty("name") &&
     (pokemonDetail.id === parseInt(id) || pokemonDetail.id === id)
@@ -52,14 +53,14 @@ const Detail = () => {
                     {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
                   </span>
                 );
-              })}
+              })}</p>
                {pokemonDetail.createdInDb && (
               <div>
                 <button className="buttonDelete" onClick={(event) => handleDelete(event)}>Delete</button>
                 <NavLink className="buttonEdit" to={`/edit/${pokemonDetail.id}`}>Edit</NavLink>
               </div>
             )}
-            </p>
+            
           </div>
         </div>
       </>
@@ -79,10 +80,3 @@ const Detail = () => {
 };
 
 export default Detail;
-/*<p>Name: {pokemonDetail.name}</p>
-            <p>Hp: {pokemonDetail.hp}</p>
-            <p>Attack: {pokemonDetail.attack}</p>
-            <p>Defense: {pokemonDetail.defense}</p>
-            <p>Speed: {pokemonDetail.speed}</p>
-            <p>Height: {pokemonDetail.height}</p>
-            <p>Weight: {pokemonDetail.weight}</p>*/
