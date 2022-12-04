@@ -7,7 +7,7 @@ const LandingPage = () => {
       <div className={style.bodyLandingPage}>
         <div className={style.titleContainer}>
           <div className={style.linkContainer}>
-            <h1 className={style.titleLandingPage}>Welcome to the Pokedex</h1>
+            <h1 className={style.titleLandingPage}>Welcome to the Pokedex!</h1>
             <br />
             <p className={style.p}>
               Be careful out there, wild Pokemon live in tall grass, you need
