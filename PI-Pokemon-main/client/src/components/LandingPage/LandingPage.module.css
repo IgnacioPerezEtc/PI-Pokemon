@@ -1,16 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@0;1&display=swap");
+
 * {
   font-family: "Source Sans Pro", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 .titleLandingPage {
-  padding-top: 70px;
   color: #000408;
-  font-weight: 700;
-  align-items: center;
-  margin-bottom: 6.8em;
+  margin: 40px;
+  font-size: 60px;
 }
 .bodyLandingPage {
-  background-image: url("https://images8.alphacoders.com/836/836499.jpg");
+  background-color: #173c61;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -21,12 +23,30 @@
 .btnLandingPage {
   text-decoration: none;
   color: #fff;
-  margin-left: 60px;
   border-radius: 30px;
   padding: 1.5em 1.9em;
-  background-color: #1c3651;
+  background-color: #011830;
 }
 .btnLandingPage:hover {
   transition: all 0.2s;
-  background-color: #000408;
+  background-color: #145da5;
+}
+.titleContainer {
+  display: flex;
+  justify-content: left;
+  padding-left: 3%;
+  
+}
+.linkContainer {
+  margin: 30px;
+}
+.img {
+  margin: 15px;
+  margin-right: 20px;
+  border-radius: 90px;
+  margin-bottom: -15px;
+}
+.p{
+  font-size: 28px;
+  margin-bottom: 40px;
 }

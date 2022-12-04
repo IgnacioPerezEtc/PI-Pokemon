@@ -62,7 +62,10 @@ const rootReducer = (state = initialState, action) => {
         if (!FilterPokemons.length) {
           return {
             ...state,
-            error: true,
+            error:
+            FilterPokemons.length > 0
+            ? false
+            : ` No se ha creado ningun pokemon`,
           };
         }
       } else {
