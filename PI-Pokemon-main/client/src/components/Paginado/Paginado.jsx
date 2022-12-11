@@ -1,5 +1,8 @@
 import React from "react";
 import style from "./Paginado.module.css";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faArrowRight} from "@fortawesome/free-solid-svg-icons"
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons"
 export default function Paginado({
   pokemonsPerPage,
   allPokemons,
@@ -19,7 +22,7 @@ export default function Paginado({
               className={style.buttonPaginado}
               onClick={() => paginado(--currentPage)}
             >
-              Prev
+              <FontAwesomeIcon icon={faArrowLeft} />
             </button>
           </li>
         )}
@@ -41,7 +44,7 @@ export default function Paginado({
             <button
               className={style.buttonPaginado}
               onClick={() => paginado(++currentPage)}>
-              Next
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </li>
         )}

@@ -30,13 +30,12 @@ export const Home = () => {
   if (error) {
     return <Error />;
   }
-
   if (allPokemons.length) {
     return (
       <>
         <div className={style.bodyHome}>
+        
           <SearchBar setCurrentPage={setCurrentPage} />
-
           <div>
             {currentPokemons.map((pokemon) => {
               return (

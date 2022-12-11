@@ -4,7 +4,6 @@ import { createPokemon, getAllPokemons, getTypes } from "../../redux/actions";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Form.css";
-//import swal from "sweetalert2";
 const Form = () => {
   function validate(input) {
     const errors = {};
