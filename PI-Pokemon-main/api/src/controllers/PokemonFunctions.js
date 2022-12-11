@@ -1,6 +1,5 @@
 const { Pokemon, Type } = require("../db.js");
 const axios = require("axios");
-const { where } = require("sequelize");
 
 const url = "https://pokeapi.co/api/v2/pokemon";
 const url2 = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20";

@@ -40,6 +40,7 @@ export const SearchBar = ({ setCurrentPage }) => {
 
   const handleChangeByExisting = (event) => {
     event.preventDefault();
+    setCurrentPage(1);
     let value = event.target.value;
     if (value === "Todos") {
       dispatch(getAllPokemons());
@@ -50,14 +51,13 @@ export const SearchBar = ({ setCurrentPage }) => {
 
   const handleOrder = (event) => {
     event.preventDefault();
+    setCurrentPage(1);
     const value = event.target.value;
     if (value === "strong" || value === "weak") {
       dispatch(orderByAttack(value));
-      setCurrentPage(1);
     }
     if (value === "AZ" || value === "ZA") {
       dispatch(orderAlphabetically(value));
-      setCurrentPage(1);
     }
   };
   const reload = () => {
@@ -66,6 +66,7 @@ export const SearchBar = ({ setCurrentPage }) => {
 
   const handleChangeByType = (event) => {
     event.preventDefault();
+    setCurrentPage(1);
     let value = event.target.value;
     if (value === "all") {
       dispatch(getAllPokemons());

@@ -68,13 +68,16 @@ const Detail = () => {
   } else {
     return (
       <div className="loadingContainer">
-        <h1 className="loadingH2">Loading</h1>
+        <div className="container">
+            <h1 className="loadingH2">Loading</h1>
         <img
           className="loadingImg"
           src="https://i.pinimg.com/originals/66/89/dc/6689dc331be27e66349ce9a4d15ddff3.gif"
           alt=""
         />
       </div>
+        </div>
+      
     );
   }
 };

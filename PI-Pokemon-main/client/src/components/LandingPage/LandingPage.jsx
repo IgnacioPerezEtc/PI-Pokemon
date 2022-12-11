@@ -14,7 +14,7 @@ const LandingPage = () => {
               your own Pokemon for your protection
             </p><br />
             <NavLink className={style.btnLandingPage} to="/home">
-              go to Home
+              Go to Home
             </NavLink>
           </div>
           <div className={style.imgContainer}>

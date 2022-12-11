@@ -27,6 +27,7 @@ export function getAllPokemons() {
     }
   };
 }
+
 export function setError(payload) {
   return {
     type: ERROR,

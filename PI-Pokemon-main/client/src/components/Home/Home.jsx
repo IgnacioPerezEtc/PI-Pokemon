@@ -67,16 +67,18 @@ export const Home = () => {
   } else {
     return (
       <div className={style.loadingContainer}>
-        <SearchBar></SearchBar>
-        <div>
-          <h1>Loading</h1>
+        <div className={style.container}>
+           <div>
+          <h1 className={style.title}>Loading</h1>
         </div>
         <div className={style.loadingImgContainer}>
           <img
             src="https://i.pinimg.com/originals/66/89/dc/6689dc331be27e66349ce9a4d15ddff3.gif"
             alt=""
           />
+        </div> 
         </div>
+      
       </div>
     );
   }

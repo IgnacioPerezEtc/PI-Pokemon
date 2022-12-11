@@ -4,6 +4,7 @@ import { createPokemon, getAllPokemons, getTypes } from "../../redux/actions";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Form.css";
+//import swal from "sweetalert2";
 const Form = () => {
   function validate(input) {
     const errors = {};
@@ -157,7 +158,8 @@ const Form = () => {
                         handleChange(event);
                       }}
                       type="text"
-                      placeholder="Nombre"/>
+                      placeholder="Nombre"
+                    />
                     {errors.name && <div className="Errors">{errors.name}</div>}
                     <div className="h2Form">Hp</div>
                     <input

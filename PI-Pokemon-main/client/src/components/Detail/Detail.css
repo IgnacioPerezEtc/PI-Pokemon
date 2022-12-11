@@ -61,6 +61,12 @@
   height: 100%;
   position: absolute;
 }
+.container{
+  margin: 70px;
+}
+.loadingH2{
+  font-size: 45px;
+}
 .loadingImgContainer {
   display: flex;
   justify-content: center;
