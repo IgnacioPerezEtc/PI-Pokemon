@@ -14,7 +14,7 @@ export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export function getAllPokemons() {
   return async function (dispatch) {
     try {
-      const json = await axios.get("http://localhost:3001/pokemons");
+      const json = await axios.get("/pokemons");
       return dispatch({
         type: GET_ALL_POKEMONS,
         payload: json.data,
@@ -36,21 +36,21 @@ export function setError(payload) {
 }
 export function editPokemon(id, params) {
   return async function () {
-    const edited = await axios.put(`http://localhost:3001/edit/${id}`, params);
+    const edited = await axios.put(`/edit/${id}`, params);
     return edited;
   };
 }
 
 export function deletePokemon(id) {
   return async function () {
-    const deleted = await axios.delete(`http://localhost:3001/delete/${id}`);
+    const deleted = await axios.delete(`/delete/${id}`);
     return deleted;
   };
 }
 export function getPokemonById(id) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/pokemons/${id}`);
+      const json = await axios.get(`/pokemons/${id}`);
       return dispatch({
         type: GET_POKEMON_BY_ID,
         payload: json.data.pop(),
@@ -68,7 +68,7 @@ export const getPokemonByName = (name) => {
   return async (dispatch) => {
     try {
       const json = await axios.get(
-        `http://localhost:3001/pokemons?name=${name}`
+        `/pokemons?name=${name}`
       );
       return dispatch({
         type: GET_POKEMON_BY_NAME,
@@ -85,14 +85,14 @@ export const getPokemonByName = (name) => {
 
 export function createPokemon(data) {
   return async function (dispatch) {
-    const json = await axios.post("http://localhost:3001/pokemons", data);
+    const json = await axios.post("/pokemons", data);
     return json;
   };
 }
 
 export function getTypes() {
   return async function (dispatch) {
-    const json = await axios.get("http://localhost:3001/types");
+    const json = await axios.get("/types");
     return dispatch({
       type: GET_TYPES,
       payload: json.data,
